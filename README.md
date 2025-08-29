@@ -9,8 +9,15 @@ Web Preview
 
 tripvaler Full-Stack Application for Tech Challenge
 
-    - This is a full-stack version of the application, featuring AI (GEMINI) Integration, Map Destination, and Reviews.
+    - This is a full-stack version of the application, featuring:
+        - AI (GEMINI) Integration, 
+        - Map Destination, 
+        - Password encryption,
+        - User Token, and
+        - Trip Reviews functionality.
 
+
+        
     - a Next.js frontend and a Node.js/Express/PostgreSQL backend.
 
 -----------------------------------------------
@@ -55,7 +62,7 @@ Follow these steps to set up and run the project locally.
 3. Backend Setup
 
     1.  Navigate to the `server` directory:
-        - type in terminal/cmd: cd server
+        - type in terminal: cd server
 
     2.  Install the backend dependencies:
         - type terminal: npm install
