@@ -44,8 +44,11 @@ Follow these steps to set up and run the project locally.
 
 -----------------------------------------------
 3. Project File Setup
-    - open cmd or vscode terminal
-    - cd (folder or filepath-you-want)
+    - create any folder
+    - open VScode app
+    - click file (top left) - open the folder (choose created folder)
+    - click terminal (top left) - new terminal
+    - navigate terminal (below)
     - type: git clone https://github.com/wetdino21/BACALSO-TC82625.git
 
 -----------------------------------------------
