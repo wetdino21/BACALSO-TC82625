@@ -1,0 +1,44 @@
+{
+  "name": "tripvaler-nextjs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm:dev:server\" \"npm:dev:next\"",
+    "dev:server": "npm run dev --prefix server",
+    "dev:next": "next dev",
+    "build": "npm run build --prefix server && next build",
+    "start": "concurrently \"npm:start:server\" \"npm:start:next\"",
+    "start:server": "npm start --prefix server",
+    "start:next": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@google/genai": "^1.16.0",
+    "leaflet": "^1.9.4",
+    "next": "14.2.32",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-icons": "^5.5.0",
+    "react-leaflet": "^4.2.1",
+    "react-markdown": "^10.1.0",
+    "swr": "^2.2.5",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.13",
+    "@types/leaflet": "^1.9.20",
+    "@types/multer": "^2.0.0",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/uuid": "^10.0.0",
+    "autoprefixer": "^10.4.19",
+    "concurrently": "^8.2.2",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.32",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}
