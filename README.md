@@ -45,7 +45,7 @@ Follow these steps to set up and run the project locally.
 -----------------------------------------------
 3. Project File Setup
     - open cmd or vscode terminal
-    - cd <folder or filepath-you-want>
+    - cd (folder or filepath-you-want)
     - type: git clone https://github.com/wetdino21/BACALSO-TC82625.git
 
 -----------------------------------------------
