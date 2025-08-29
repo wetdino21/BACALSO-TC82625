@@ -19,6 +19,7 @@ const DynamicMap = dynamic(() => import('@/components/TripMap'), {
   )
 });
 
+
 export default function CreateTripPage() {
   const { currentUser, token } = useAuth();
   const router = useRouter();
@@ -70,6 +71,12 @@ export default function CreateTripPage() {
     const delayDebounce = setTimeout(fetchCoords, 800); // debounce input
     return () => clearTimeout(delayDebounce);
   }, [formData.destination]);
+
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
 
   // Helper function to process file (used by both upload and drag & drop)
   const processImageFile = async (file: File) => {
@@ -219,11 +226,13 @@ export default function CreateTripPage() {
           />
           {coords && (
             <div className="mt-4 h-64 w-full rounded-md overflow-hidden">
-              <DynamicMap
-                center={[coords.lat, coords.lon]}
-                zoom={12}
-                destination={formData.destination}
-              />
+              {mounted && (
+                <DynamicMap
+                  center={[coords.lat, coords.lon]}
+                  zoom={12}
+                  destination={formData.destination}
+                />
+              )}
             </div>
           )}
         </div>
