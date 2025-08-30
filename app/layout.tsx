@@ -6,9 +6,17 @@ import { AuthProvider } from "@/providers/AuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "tripvaler",
-  description: "tripvaler connects travelers who want to share journeys, split costs, meet new people, and embark on adventures together through a simple, safe, and efficient platform.",
+// export const metadata: Metadata = {
+//   title: "tripvaler",
+//   description: "tripvaler connects travelers who want to share journeys, split costs, meet new people, and embark on adventures together through a simple, safe, and efficient platform.",
+// };
+
+export const metadata = {
+  title: "Tripvaler",
+  description: "Travel app",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
