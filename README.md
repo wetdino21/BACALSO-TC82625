@@ -60,6 +60,12 @@ Follow these steps to set up and run the project locally.
             -hit enter-enter until password then type your postgre password (it will invinsible when typing)
             -type: CREATE DATABASE tripvaler;
 
+        *or using pgAdmin:
+            -click windows key
+            -type pagadmin - open
+            -servers (login password) -> databases (right click create database)
+            -type database name: tripvaler
+            -save
 -----------------------------------------------
 3. Project File Setup
     - create any folder
