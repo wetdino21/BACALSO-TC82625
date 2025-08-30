@@ -1,8 +1,8 @@
 Mobile Preview
 <p align="center">
-  <img src="public/image/mobile_preview1.jpg" width="30%" />
-  <img src="public/image/mobile_preview2.jpg" width="30%" />
-  <img src="public/image/mobile_preview3.jpg" width="30%" />
+  <img src="public/image/mobile_preview1.png" width="30%" />
+  <img src="public/image/mobile_preview2.png" width="30%" />
+  <img src="public/image/mobile_preview3.png" width="30%" />
 </p>
 
 Medium Preview
