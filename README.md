@@ -1,3 +1,14 @@
+Mobile Preview
+<p align="center">
+  <img src="public/image/mobile_preview1.jpg" width="30%" />
+  <img src="public/image/mobile_preview2.jpg" width="30%" />
+  <img src="public/image/mobile_preview3.jpg" width="30%" />
+</p>
+
+Medium Preview
+
+![Preview 1](public/image/ipad_preview.png)
+
 Web Preview
 
 ![Preview 1](public/image/web_preview1.png)
