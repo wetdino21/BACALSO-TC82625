@@ -68,7 +68,7 @@ Follow these steps to set up and run the project locally.
         - type terminal: npm install
         
     3.  Edit the `.env` file and fill in your PostgreSQL connection details.
-
+        Note: There are 2 .env so this time follow
         -path: /server/.env
             # PostgreSQL connection settings
             PGHOST=localhost

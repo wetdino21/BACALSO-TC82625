@@ -6,17 +6,20 @@ import { usePathname } from 'next/navigation';
 import { useAuth } from '../hooks/useAuth';
 import { PlaneIcon } from './icons/PlaneIcon';
 import { FiUser } from "react-icons/fi";
+import { FiMenu, FiX } from "react-icons/fi";
 
 export const Header: React.FC = () => {
   const { currentUser, logout, isAuthLoading } = useAuth();
   const pathname = usePathname();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const navLinkClasses = (href: string) =>
-    `px-3 py-2 rounded-md text-sm font-medium transition-colors ${pathname === href
-      ? 'bg-brand-secondary text-white'
-      : 'text-gray-700 hover:bg-brand-light hover:text-brand-dark'
+    `block px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+      pathname === href
+        ? 'bg-brand-secondary text-white'
+        : 'text-gray-700 hover:bg-brand-light hover:text-brand-dark'
     }`;
 
   // Close dropdown when clicking outside
@@ -34,11 +37,26 @@ export const Header: React.FC = () => {
     <header className="bg-white shadow-md sticky top-0 z-50">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
+
+          {/* LEFT SIDE: Mobile Menu + Logo */}
           <div className="flex items-center">
+            {/* Mobile menu button */}
+            <div className="md:hidden mr-2">
+              <button
+                onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+                className="p-2 rounded-md text-gray-700 hover:bg-gray-200 focus:outline-none"
+              >
+                {isMobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+              </button>
+            </div>
+
+            {/* Logo */}
             <Link href="/" className="flex-shrink-0 flex items-center gap-2 text-brand-dark font-bold text-xl">
               <PlaneIcon className="h-8 w-8 text-brand-primary" />
               Tripvaler
             </Link>
+
+            {/* Desktop Nav Links */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
                 <Link href="/" className={navLinkClasses('/')}>
@@ -57,11 +75,13 @@ export const Header: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="hidden md:block">
+
+          {/* RIGHT SIDE: Profile / Auth */}
+          <div className="flex items-center">
             {isAuthLoading ? (
               <div className="animate-pulse h-8 w-24 bg-gray-200 rounded-md"></div>
             ) : currentUser ? (
-              <div className="ml-4 flex items-center md:ml-6 relative" ref={dropdownRef}>
+              <div className="ml-4 relative" ref={dropdownRef}>
                 <button
                   onClick={() => setIsDropdownOpen((prev) => !prev)}
                   className="flex items-center p-1 bg-white rounded-full text-gray-400 hover:text-brand-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-primary"
@@ -85,7 +105,6 @@ export const Header: React.FC = () => {
                       href="/profile"
                       onClick={() => setIsDropdownOpen(false)}
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      onError={() => setIsDropdownOpen(false)}
                     >
                       Your Profile
                     </Link>
@@ -100,7 +119,6 @@ export const Header: React.FC = () => {
                     </button>
                   </div>
                 )}
-
               </div>
             ) : (
               <div className="flex items-center gap-4">
@@ -117,6 +135,25 @@ export const Header: React.FC = () => {
             )}
           </div>
         </div>
+
+        {/* Mobile Menu Dropdown */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden mt-2 space-y-1 px-2 pb-3 pt-2 border-t border-gray-200">
+            <Link href="/" className={navLinkClasses('/')} onClick={() => setIsMobileMenuOpen(false)}>
+              Discover Trips
+            </Link>
+            {currentUser && (
+              <>
+                <Link href="/my-trips" className={navLinkClasses('/my-trips')} onClick={() => setIsMobileMenuOpen(false)}>
+                  My Trips
+                </Link>
+                <Link href="/create" className={navLinkClasses('/create')} onClick={() => setIsMobileMenuOpen(false)}>
+                  Create Trip
+                </Link>
+              </>
+            )}
+          </div>
+        )}
       </nav>
     </header>
   );
